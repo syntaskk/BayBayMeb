@@ -192,7 +192,7 @@ class SystemVPN:
         
         info_label = tk.Label(
             info_frame,
-            text="🎮 DISCORD + ROBLOX + TÜM UYGULAMALAR",
+            text="TÜM UYGULAMALAR",
             font=("Segoe UI", 7, "bold"),
             bg=self.colors['bg'],
             fg=self.colors['warning']
@@ -769,7 +769,7 @@ goto loop
             self.window.after(0, self.hide_connecting)
             self.window.after(0, lambda: self.update_status(
                 "BAĞLI ✓",
-                "Discord, Roblox ve TÜM uygulamalar VPN kullanıyor (Zero Encryption)",
+                "TÜM uygulamalar VPN kullanıyor (Zero Encryption)",
                 self.colors['success']
             ))
             self.window.after(0, lambda: self.toggle_button.config(
@@ -780,7 +780,7 @@ goto loop
             
             self.window.after(0, lambda: self.show_notification(
                 "VPN Bağlandı!",
-                "Discord ve Roblox dahil TÜM uygulamalar artık VPN kullanıyor!",
+                "TÜM uygulamalar artık VPN kullanıyor!",
                 success=True
             ))
                 
@@ -879,7 +879,7 @@ goto loop
         
         self.update_status(
             "HAZIR",
-            "Discord, Roblox, oyunlar ve TÜM uygulamalar desteklenir",
+            "TÜM uygulamalar desteklenir",
             self.colors['accent']
         )
         
