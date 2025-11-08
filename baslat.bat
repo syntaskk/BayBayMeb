@@ -2,31 +2,17 @@
 title VPN Baslatici
 color 0A
 
-
+:: Yönetici olarak çalışıyor mu kontrol et
 net session >nul 2>&1
 if %errorLevel% neq 0 (
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
 
-
 cd /d "%~dp0"
-
 cls
 
-
-
-python --version >nul 2>&1
-if errorlevel 1 (
-    echo [!] Python yuklu degil!
-    pause
-    exit /b 1
-)
-
-echo [+] Python: TAMAM
-echo.
-
-:: dosyalar klasorune gec
+:: dosyalar klasörü kontrolü
 if not exist "dosyalar" (
     echo [!] dosyalar klasoru bulunamadi!
     pause
@@ -35,22 +21,15 @@ if not exist "dosyalar" (
 
 cd dosyalar
 
-
-echo [*] Paketler kontrol ediliyor...
-python -m pip install --upgrade pip winotify pywin32 pillow
-
-echo.
-echo [+] Hazir!
-echo.
-
-
-if exist "erisimasan.py" (
+:: erisimasan.exe kontrolü
+if exist "erisimasan.exe" (
     echo [*] VPN baslatiliyor...
     timeout /t 2 /nobreak >nul
-    start /B pythonw erisimasan.py
+    start "" "erisimasan.exe"
+    echo [+] VPN baslatildi!
     exit
 ) else (
-    echo [!] erisimasan.py bulunamadi!
+    echo [!] erisimasan.exe bulunamadi!
     pause
 )
 
